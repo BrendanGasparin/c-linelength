@@ -8,20 +8,20 @@
 
 #include <stdio.h>
 
-#define MAXLINE 1002    // maximum input line size
+#define MAXLINE 1002                // maximum input line size
 
 void copy(char to[], char from[]);
 int getline(char line[], int limit);
 
 int main()
 {
-    unsigned long length;            // current line length
-    int line_number = 0;   // current line_number
-    char line[MAXLINE];    // current input line
+    unsigned long length;           // current line length
+    int line_number = 0;            // current line_number
+    char line[MAXLINE];             // current input line
 
     while ((length = getline(line, MAXLINE)) > 0) {
         line_number++;
-        printf("%ld: %d: %s\n", line_number, length, line);
+        printf("%ld: %d: %s", line_number, length - 1, line);
     }
 
     return 0;
@@ -42,6 +42,8 @@ void copy(char to[], char from[])
 
 /*
     getline()
+    Gets a line from the standard input and copies it to a char array string,
+    returning the length of the string.
     @param: char line[]: The line of text to be read from the input.
     @param: int limit: The limit of the input buffer.
     @return: int: The length of the input character array.
@@ -50,7 +52,7 @@ int getline(char line[], int limit)
 {
     int c, i;
 
-    for (i = 0; i < limit - 1 && (c = getchar()) != EOF && c!='\n'; ++1))
+    for (i = 0; i < limit - 1 && (c = getchar()) != EOF && c!='\n'; i++)
         line[i] = c;
     if (c == '\n') {
         line[i] = c;
