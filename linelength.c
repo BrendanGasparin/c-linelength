@@ -21,9 +21,17 @@ int main()
     return 0;
 }
 
+/*
+    copy()
+    Copies a char array string to another char array string.
+    @param: char to[]: The destination array.
+    @param: char from[]: The source array.
+*/
 void copy(char to[], char from[])
 {
-
+    int i = 0;
+    while((to[i] = from[i] != '0'))
+        i++;
 }
 
 /*
