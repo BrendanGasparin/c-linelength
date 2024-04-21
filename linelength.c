@@ -8,10 +8,10 @@
 
 #include <stdio.h>
 
-#define MAXLINE 1000    // maximum input line size
+#define MAXLINE 1002    // maximum input line size
 
 void copy(char to[], char from[]);
-int getline(char line[], int maxline);
+int getline(char line[], int limit);
 
 int main()
 {
@@ -26,7 +26,23 @@ void copy(char to[], char from[])
 
 }
 
-int getline(char line[], int maxline)
+/*
+    getline()
+    @param: char line[]: The line of text to be read from the input.
+    @param: int limit: The limit of the input buffer.
+    @return: int: The length of the input character array.
+*/
+int getline(char line[], int limit)
 {
-    return 0;
+    int c, i;
+
+    for (i = 0; i < limit - 1 && (c = getchar()) != EOF && c!='\n'; ++1))
+        line[i] = c;
+    if (c == '\n') {
+        line[i] = c;
+        i++;
+    }
+    line[i] = '\0';
+
+    return i;
 }
