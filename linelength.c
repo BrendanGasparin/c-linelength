@@ -15,8 +15,14 @@ int getline(char line[], int limit);
 
 int main()
 {
-    int len;            // current line length
-    char line[MAXLINE]; // current input line
+    unsigned long length;            // current line length
+    int line_number = 0;   // current line_number
+    char line[MAXLINE];    // current input line
+
+    while ((length = getline(line, MAXLINE)) > 0) {
+        line_number++;
+        printf("%ld: %d: %s\n", line_number, length, line);
+    }
 
     return 0;
 }
